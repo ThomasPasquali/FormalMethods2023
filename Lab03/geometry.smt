@@ -1,4 +1,3 @@
-; Use semi columns for comments
 (set-option :produce-models true)
 
 (declare-const xa Real)

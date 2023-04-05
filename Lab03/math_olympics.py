@@ -20,8 +20,16 @@ msat = Solver()
 converter = msat.converter  # .converter is a property implemented by all solvers
 
 # At time i we are in position j
-vars = {"x{}{}".format(i, j): Symbol("x{}{}".format(i, j), BOOL) for i in range(1, 5) for j in range(1, 5)}
+vars_aliases = ["a", "b", "c"]
+vars = {s: Symbol(s, INT) for s in vars_aliases}
 
+for s in vars_aliases:
+    if s != "b":
+        msat.add_assertion(NotEquals(vars[s], 0))
+    msat.add_assertion(LE(vars[s], 9))
+    msat.add_assertion(GE(vars[s], 0))
+
+msat.add_function()
 result = []
 # Directly invoke the mathsat API !!!
 # The second term is a list of "important variables"
@@ -34,9 +42,3 @@ for el in result:
     count += 1
     print("Model", count, ":", el)
     print("**************************************")
-
-count = 0
-for el in result:
-	count += 1
-	print("Model", count, ":",el)
-	print("**************************************")
