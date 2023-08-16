@@ -16,3 +16,16 @@ For people that asked me some links to easily learn the basics of Python, please
 - Dimacs and SMT-LIB format
 - Encoding circuits and checking equivalence
 - From real tasks to SAT models: sorting people, cracking codes
+
+## Commands
+
+### DIMACS
+```bash
+../../../mathsat/bin/mathsat -input=dimacs ex.dimacs
+```
+
+### SMT
+```bash
+../../../mathsat/bin/mathsat ex.smt
+../../../mathsat/bin/mathsat -model_generation=true ex.smt
+```
