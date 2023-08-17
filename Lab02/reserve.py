@@ -15,12 +15,12 @@ for j in range(1,6):
 	formula.append(ExactlyOne([vars["x{}{}".format(i,j)] for i in "abcde"]))
 
 guests_conditions = [
-					Or(vars["xa1"], vars["xa2"]),
-					Or(vars["xb2"], vars["xb4"]),
-					vars["xc1"],
-					Or(vars["xd2"], vars["xd4"]),
-					Or(vars["xe1"], vars["xe5"]),
-					]
+	Or(vars["xa1"], vars["xa2"]),
+	Or(vars["xb2"], vars["xb4"]),
+	vars["xc1"],
+	Or(vars["xd2"], vars["xd4"]),
+	Or(vars["xe1"], vars["xe5"]),
+]
 
 formula = And(formula)
 write_smtlib(formula, "reserve.smt2")
@@ -31,6 +31,7 @@ for i in range(len(guests_conditions)):
 	if res:
 		pass
 	else:
+		# print([el for el in msat.get_named_unsat_core()])
 		print("We can satisfy in order {} people".format(i))
 		exit()
 

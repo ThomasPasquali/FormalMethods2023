@@ -41,18 +41,24 @@ for i in range(0, 9):
 res = msat.solve()
 if res:
     solution = list()
+    toExclude = []
     sat_model = {el[0].symbol_name(): el[1] for el in msat.get_model()}
     for i in range(0, 9):
         row = list()
         for j in range(0, 9):
             for k in range(1, 10):
-                if sat_model["x{}{}{}".format(i + 1, j + 1, k)] == Bool(True):
+                v = "x{}{}{}".format(i + 1, j + 1, k)
+                if sat_model[v] == Bool(True):
                     row.append(k)
+                    toExclude.append(var[v])
         solution.append(row)
     for line in solution:
         print(line)
+    # print(toExclude)
+    msat.add_assertion(Not(And(toExclude)))
 else:
     print("UNSAT")
+print("------------------------")
 
 res = msat.solve()
 if res:
@@ -68,4 +74,4 @@ if res:
 	for line in solution:
 		print(line)
 else:
-	print("UNSAT")
+	print("UNSAT: solution in unique")

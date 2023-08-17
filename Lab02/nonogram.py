@@ -1,12 +1,13 @@
 from pysmt.shortcuts import *
 
-# Number k is in position (i,j)
 msat = Solver()
 
 ancillas_index = 1
 nonogram_column_hints = [2,3,4,2,2]
 nonogram_row_hints = [2,3,3,(3,1),1]
 nonogram_size = (len(nonogram_row_hints), len(nonogram_column_hints))
+
+# True in position (i,j) => cell is black, otherwise cross
 vars = {"x{}{}".format(i,j): Symbol("x{}{}".format(i,j), BOOL) for i in range(1,len(nonogram_row_hints)+1) for j in range(1,len(nonogram_column_hints)+1)}
 
 # Row 1
@@ -101,7 +102,7 @@ if res:
 			if sat_model["x{}{}".format(i,j)] == Bool(True):
 				row += "*"
 			else:
-				row += " "
+				row += "-"
 		solution.append(row)
 	for line in solution:
 		print(line)
