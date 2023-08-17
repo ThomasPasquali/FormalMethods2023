@@ -14,7 +14,7 @@
 ; Interpreted function
 (define-fun f ((x Real)) Real (+ q (* m x)))
 
-(assert (= xa 3))
+(assert (= xa 1))
 (assert (= ya 3))
 (assert (= xb 3))
 (assert (= yb 12))
@@ -24,7 +24,7 @@
 (assert (= t2 (- xb xa)))
 (assert (= m (/ t1 t2)))
 (assert (= q (- yb (* m xb))))
-;(assert (= (f x) 0))
+(assert (= (f x) 0))
 
 (check-sat)
 (get-model)

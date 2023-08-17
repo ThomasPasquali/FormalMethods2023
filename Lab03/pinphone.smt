@@ -81,5 +81,6 @@
 (assert (=> x33 (or x14 x44)))
 (assert (=> x43 (or x24 x34)))
 
-(check-allsat (x11 x21 x31 x41 x12 x22 x32 x42 x13 x23 x33 x43 x14 x24 x34 x44))
+; (check-allsat (x11 x21 x31 x41 x12 x22 x32 x42 x13 x23 x33 x43 x14 x24 x34 x44))
+(check-allsat ())
 (exit)
