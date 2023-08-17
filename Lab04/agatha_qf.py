@@ -58,7 +58,8 @@ solver.add_assertion(ForAll([i], Plus([Ite(Function(hates, [i,Int(j)]),Int(1),In
 # Who killed Agatha? 
 num_solutions = 0
 
-print(solver.assertions)
+import pprint
+pprint.pprint(solver.assertions)
 
 while solver.solve():
     num_solutions += 1

@@ -63,6 +63,9 @@ for i in range(n):
 # Who killed Agatha? 
 num_solutions = 0
 
+import pprint
+pprint.pprint(solver.assertions)
+
 while solver.solve():
     num_solutions += 1
     sat_model = {el[0].symbol_name():el[1] for el in solver.get_model()}
