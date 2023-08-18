@@ -1,10 +1,12 @@
 from pysmt.shortcuts import *
 
-problem = [ [1,2,0,0,0], 
-			[0,0,0,3,0], 
-			[0,3,2,0,0],
-			[0,4,0,0,0], 
-			[0,0,0,1,4]]
+problem = [ 
+	[1,2,0,0,0], 
+	[0,0,0,3,0], 
+	[0,3,2,0,0],
+	[0,4,0,0,0], 
+	[0,0,0,1,4]
+]
 
 grid = []
 for i in range(5):
@@ -42,7 +44,8 @@ for i in range(5):
 			solver.add_assertion(Or(l))
 
 # Easier way to get all assertions as a list (to store into smtlib file)
-#print(solver.assertions)
+import pprint
+pprint.pprint(solver.assertions)
 
 res = solver.solve()
 if res:
