@@ -22,13 +22,13 @@
 
 ; 0=A 1=B 2=C 3=D
 (declare-const r0 Int)
-(assert (or (= r0 AA) (= r0 AB) (= r0 AC) (=r0 AD)))
+(assert (or (= r0 AA) (= r0 AB) (= r0 AC) (= r0 AD)))
 (declare-const r1 Int)
-(assert (or (= r1 BA) (= r1 BB) (= r1 BC) (=r1 BD)))
+(assert (or (= r1 BA) (= r1 BB) (= r1 BC) (= r1 BD)))
 (declare-const r2 Int)
-(assert (or (= r2 CA) (= r2 CB) (= r2 CC) (=r2 CD)))
+(assert (or (= r2 CA) (= r2 CB) (= r2 CC) (= r2 CD)))
 (declare-const r3 Int)
-(assert (or (= r3 DA) (= r3 DB) (= r3 DC) (=r3 DD)))
+(assert (or (= r3 DA) (= r3 DB) (= r3 DC) (= r3 DD)))
 
 (minmax r0 r1 r2 r3 :id choice)
 

@@ -1,5 +1,7 @@
 (set-option :produce-models true)
 ; (set-option :optimization true)
+; (set-option :opt.priority lex)
+; (set-option :opt.priority box)
 (set-option :opt.priority pareto)
 
 ; box optimization -> try to optimize both objectives independently and must use get-model
@@ -36,6 +38,18 @@
 (minimize tothours :id time)
 
 ; check sat multiple time because we use pareto optimization
+(check-sat)
+(get-objectives)
+(get-model)
+
+(check-sat)
+(get-objectives)
+(get-model)
+
+(check-sat)
+(get-objectives)
+(get-model)
+
 (check-sat)
 (get-objectives)
 (get-model)
